@@ -1,0 +1,137 @@
+{
+    "$schema": "../../sdk/config.schema.json",
+    "name": "plugin-example",
+    "version": "1.0.0",
+    "title": "示例插件",
+    "author": "focusany",
+    "description": "示例插件说明",
+    "main": "index.html",
+    "mainFastPanel": "fastpanel.html",
+    "logo": "logo.svg",
+    "preload": "preload.cjs",
+    "actions": [
+        {
+            "name": "plugin-example-text-simple",
+            "title": "使用text匹配（简单）",
+            "matches": [
+                "example-text-simple"
+            ]
+        },
+        {
+            "name": "plugin-example-text",
+            "title": "使用text匹配",
+            "matches": [
+                {
+                    "type": "text",
+                    "minLength": 1,
+                    "maxLength": 10,
+                    "text": "example-text"
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-key",
+            "title": "使用key匹配",
+            "matches": [
+                {
+                    "type": "key",
+                    "key": "example"
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-regex",
+            "title": "使用正则匹配",
+            "matches": [
+                {
+                    "type": "regex",
+                    "regex": "/example/"
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-file",
+            "title": "使用文件匹配(文件)",
+            "matches": [
+                {
+                    "type": "file",
+                    "minCount": 1,
+                    "maxCount": 10,
+                    "filterFileType": "file",
+                    "filterExtensions": [
+                        "xlsx",
+                        "png"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-file-directory",
+            "title": "使用文件匹配(文件夹)",
+            "matches": [
+                {
+                    "type": "file",
+                    "minCount": 1,
+                    "maxCount": 10,
+                    "filterFileType": "directory"
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-window",
+            "title": "使用窗口匹配",
+            "matches": [
+                {
+                    "type": "window",
+                    "nameRegex": "/iTerm2/"
+                },
+                {
+                    "type": "window",
+                    "titleRegex": "/Electron/"
+                },
+                {
+                    "type": "window",
+                    "attrRegex": {
+                        "url": "/github.com/"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-image",
+            "title": "使用图片匹配",
+            "matches": [
+                {
+                    "type": "image"
+                }
+            ]
+        },
+        {
+            "name": "plugin-example-code",
+            "title": "使用code匹配（简单）",
+            "type": "code",
+            "matches": [
+                "example-code"
+            ]
+        },
+        {
+            "name": "plugin-example-backend",
+            "title": "使用backend匹配(简单）",
+            "type": "backend",
+            "matches": [
+                "example-backend"
+            ]
+        },
+        {
+            "name": "plugin-example-view",
+            "title": "显示view",
+            "type": "view",
+            "matches": [
+                {
+                    "type": "regex",
+                    "regex": "/^\\s*[a-zA-Z0-9]+\\s*$/"
+                }
+            ]
+        }
+    ]
+}

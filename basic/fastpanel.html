@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="container fastpanel-container">
+    <div class="title">
+        插件示例
+    </div>
+    <div class="operate">
+        <div class="item">
+            <div class="label">基础操作</div>
+            <div class="button">
+                <button onclick="focusany.getNativeId()">getNativeId</button>
+                <button onclick="focusany.getAppVersion()">getAppVersion</button>
+                <button onclick="focusany.isMainWindowShown()">isMainWindowShown</button>
+                <button onclick="focusany.hideMainWindow()">hideMainWindow</button>
+                <button onclick="focusany.showMainWindow()">showMainWindow</button>
+                <button onclick="focusany.isFastPanelWindowShown()">isFastPanelWindowShown</button>
+                <button onclick="focusany.hideFastPanelWindow()">hideFastPanelWindow</button>
+                <button onclick="focusany.showFastPanelWindow()">showFastPanelWindow</button>
+                <button onclick="focusany.showOpenDialog({title:'弹窗示例 dialog.showOpenDialog'})">showOpenDialog</button>
+                <button onclick="focusany.showSaveDialog({title:'弹窗示例 dialog.showSaveDialog'})">showSaveDialog</button>
+<!--                <button onclick="focusany.setExpendHeight(600)">setExpendHeight</button>-->
+                <button onclick="focusany.getPluginRoot()">getPluginRoot</button>
+                <button onclick="focusany.getPluginEnv()">getPluginEnv</button>
+                <button onclick="focusany.getPluginConfig()">getPluginConfig</button>
+                <button onclick="focusany.getPluginInfo()">getPluginInfo</button>
+                <button onclick="focusany.getQuery(pluginData.requestId)">getQuery</button>
+                <button onclick="focusany.getPath('home')">getPath('home')</button>
+                <button onclick="focusany.getPath('appData')">getPath('appData')</button>
+                <button onclick="focusany.getPath('userData')">getPath('userData')</button>
+                <button onclick="focusany.getPath('temp')">getPath('temp')</button>
+                <button onclick="focusany.getPath('exe')">getPath('exe')</button>
+                <button onclick="focusany.getPath('desktop')">getPath('desktop')</button>
+                <button onclick="focusany.getPath('documents')">getPath('documents')</button>
+                <button onclick="focusany.getPath('downloads')">getPath('downloads')</button>
+                <button onclick="focusany.getPath('music')">getPath('music')</button>
+                <button onclick="focusany.getPath('pictures')">getPath('pictures')</button>
+                <button onclick="focusany.getPath('videos')">getPath('videos')</button>
+                <button onclick="focusany.getPath('logs')">getPath('logs')</button>
+                <button onclick="focusany.showToast('信息提示',{status:'info'})">showToast.info</button>
+                <button onclick="focusany.showToast('复制成功',{status:'success'})">showToast.success</button>
+                <button onclick="focusany.showToast('操作失败',{status:'error'})">showToast.error</button>
+                <button onclick="focusany.showNotification('Hello World!')">showNotification</button>
+                <button onclick="focusany.showMessageBox('Hello World!',{yes:'是',no:'否'})">showMessageBox</button>
+                <button onclick="log('isMacOs',focusany.isMacOs())">isMacOs</button>
+                <button onclick="log('isWindows',focusany.isWindows())">isWindows</button>
+                <button onclick="log('isLinux',focusany.isLinux())">isLinux</button>
+                <button onclick="log('getPlatformArch',focusany.getPlatformArch())">getPlatformArch</button>
+                <button onclick="focusany.copyImage(pluginData.pluginRoot+'/logo.svg')">copyImage</button>
+                <button onclick="focusany.copyText('hello world')">copyText</button>
+                <button onclick="focusany.copyFile(pluginData.pluginRoot+'/index.html')">copyFile</button>
+                <button onclick="focusany.getClipboardImage()">getClipboardImage</button>
+                <button onclick="focusany.getClipboardText()">getClipboardText</button>
+                <button onclick="focusany.shellOpenExternal('https://focusany.com')">shellOpenExternal</button>
+                <button onclick="focusany.shellOpenPath(pluginData.pluginRoot+'/logo.svg')">shellOpenPath</button>
+                <button onclick="focusany.shellShowItemInFolder(pluginData.pluginRoot)">shellShowItemInFolder</button>
+                <button onclick="focusany.shellBeep()">shellBeep</button>
+                <button onclick="focusany.getFileIcon('.txt')">getFileIcon.txt</button>
+                <button onclick="focusany.getFileIcon('folder')">getFileIcon.folder</button>
+                <button onclick="focusany.getFileIcon(pluginData.pluginRoot)">getFileIcon</button>
+                <button onclick="focusany.simulateKeyboardTap('h')">simulateKeyboardTap</button>
+<!--                <button onclick="log('getCursorScreenPoint',focusany.getCursorScreenPoint())">getCursorScreenPoint</button>-->
+<!--                <button onclick="log('getDisplayNearestPoint',focusany.getDisplayNearestPoint({x:1,y:2}))">getDisplayNearestPoint</button>-->
+                <button onclick="focusany.getClipboardFiles()">getClipboardFiles</button>
+<!--                <button onclick="focusany.createBrowserWindow(pluginData.pluginRoot+'/dialog.html')">createBrowserWindow</button>-->
+                <button onclick="focusany.screenCapture((data)=>{ log('screenCapture',data) })">screenCapture</button>
+<!--                <button onclick="focusany.outPlugin()">outPlugin</button>-->
+                <button onclick="focusany.isDarkColors()">isDarkColors</button>
+                <button onclick="focusany.redirect('截图')">redirect</button>
+                <button onclick="focusany.getActions()">getActions</button>
+                <button onclick='focusany.setAction({"name": "plugin-example-dynamic","title": "测试动态匹配","matches": [{"type": "key","key": "dynamic"}]})'>setAction</button>
+                <button onclick="focusany.removeAction('plugin-example-dynamic')">removeAction</button>
+                <button onclick="focusany.sendBackendEvent('testEvent',{a:1,b:2}).then(o=>log('result',o))">sendBackendEvent</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">fastPanel 快捷面板</div>
+            <div class="button">
+                <button onclick="focusany.fastPanel.setHeight(Math.floor(Math.random()*100 + 200))">fastPanel.setHeight</button>
+                <button onclick="focusany.fastPanel.getHeight()">fastPanel.getHeight</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">db 数据操作</div>
+            <div class="button">
+                <button onclick="demoData.dbKey=focusany.util.randomString();focusany.db.put({_id:demoData.dbKey,data:{a:1,b:2}})">db.put</button>
+                <button onclick="focusany.db.put({_id:'test',data:{a:1,b:2}})">db.put.test</button>
+                <button onclick="focusany.db.get(demoData.dbKey)">db.get</button>
+                <button onclick="focusany.db.remove(demoData.dbKey)">db.remove</button>
+                <button onclick="demoData.dbKeys=[focusany.util.randomString(),focusany.util.randomString()];focusany.db.bulkDocs([{_id:demoData.dbKeys[0],data:{a:1,b:2}},{_id:demoData.dbKeys[1],data:{a:1,b:2}}])">db.bulkDocs</button>
+                <button onclick="focusany.db.allDocs(demoData.dbKeys)">db.allDocs</button>
+                <button onclick="demoData.dbKey=focusany.util.randomString();focusany.db.postAttachment(demoData.dbKey,new Uint8Array([1,2,3]),'text/plain')">db.postAttachment</button>
+                <button onclick="focusany.db.getAttachment(demoData.dbKey)">db.getAttachment</button>
+                <button onclick="focusany.db.getAttachmentType(demoData.dbKey)">db.getAttachmentType</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">dbStorage 数据操作</div>
+            <div class="button">
+                <button onclick="focusany.dbStorage.setItem('test','aaa')">dbStorage.setItem</button>
+                <button onclick="focusany.dbStorage.getItem('test')">dbStorage.getItem</button>
+                <button onclick="focusany.dbStorage.removeItem('test')">dbStorage.removeItem</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">util 工具类</div>
+            <div class="button">
+                <button onclick="log('util.randomString',focusany.util.randomString())">randomString</button>
+                <button onclick="log('util.bufferToBase64',focusany.util.bufferToBase64(new Uint8Array([1,2,34,5,6,7,8,9,0])))">bufferToBase64</button>
+                <button onclick="log('util.datetimeString',focusany.util.datetimeString())">datetimeString</button>
+                <button onclick="log('util.base64Encode',focusany.util.base64Encode('123'))">base64Encode</button>
+                <button onclick="log('util.base64Decode',focusany.util.base64Decode('MTIz'))">base64Decode</button>
+                <button onclick="log('util.md5',focusany.util.md5('123'))">md5</button>
+            </div>
+        </div>
+        <div style="height:100px;"></div>
+    </div>
+    <div class="log">
+        <pre id="data"></pre>
+    </div>
+</div>
+<script>
+    const pluginData = {
+        pluginRoot: null,
+        actionName: null,
+        requestId: null,
+    };
+    const demoData = {
+        dbKey: 'test',
+        dbKeys: [],
+    }
+    const $data = document.getElementById('data');
+    const log = function (label, data) {
+        const msg = [
+            `<span>${label}</span>`,
+            JSON.stringify(data),
+            '\n'
+        ].join('');
+        $data.innerHTML += msg;
+        $data.scrollTop = $data.scrollHeight;
+    };
+    focusany.onLog(function (label, data) {
+        log(label, data);
+    });
+    focusany.onPluginReady(function (data) {
+        log('onPluginReady', data);
+        pluginData.pluginRoot = focusany.getPluginRoot()
+        pluginData.actionName = data.actionName;
+        pluginData.requestId = data.requestId
+    });
+    focusany.onPluginExit(function (data) {
+        log('onPluginExit', data);
+        // alert('onPluginExit');
+    });
+</script>
+</body>
+</html>
