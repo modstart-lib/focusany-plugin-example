@@ -1,0 +1,25 @@
+{
+    "name": "file-editor-example",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@arco-design/web-vue": "^2.56.3",
+        "@types/lodash-es": "^4.17.12",
+        "@vitejs/plugin-vue": "^5.1.4",
+        "autoprefixer": "^10.4.20",
+        "focusany-sdk": "^0.2.0",
+        "lodash-es": "^4.17.21",
+        "postcss": "^8.4.49",
+        "tailwindcss": "^3.4.17",
+        "typescript": "~5.6.2",
+        "vite": "^5.4.10",
+        "vue": "^3.5.12",
+        "vue-tsc": "^2.1.8"
+    }
+}

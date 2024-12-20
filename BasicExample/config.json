@@ -1,6 +1,6 @@
 {
-    "$schema": "../../sdk/config.schema.json",
-    "name": "plugin-example",
+    "$schema": "https://focusany.com/sdk/config.schema.json",
+    "name": "BasicExample",
     "version": "1.0.0",
     "title": "示例插件",
     "author": "focusany",
@@ -11,14 +11,14 @@
     "preload": "preload.cjs",
     "actions": [
         {
-            "name": "plugin-example-text-simple",
+            "name": "text-simple",
             "title": "使用text匹配（简单）",
             "matches": [
                 "example-text-simple"
             ]
         },
         {
-            "name": "plugin-example-text",
+            "name": "text",
             "title": "使用text匹配",
             "matches": [
                 {
@@ -30,7 +30,7 @@
             ]
         },
         {
-            "name": "plugin-example-key",
+            "name": "key",
             "title": "使用key匹配",
             "matches": [
                 {
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "name": "plugin-example-regex",
+            "name": "regex",
             "title": "使用正则匹配",
             "matches": [
                 {
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "name": "plugin-example-file",
+            "name": "file",
             "title": "使用文件匹配(文件)",
             "matches": [
                 {
@@ -66,7 +66,7 @@
             ]
         },
         {
-            "name": "plugin-example-file-directory",
+            "name": "file-directory",
             "title": "使用文件匹配(文件夹)",
             "matches": [
                 {
@@ -78,7 +78,7 @@
             ]
         },
         {
-            "name": "plugin-example-window",
+            "name": "window",
             "title": "使用窗口匹配",
             "matches": [
                 {
@@ -98,7 +98,7 @@
             ]
         },
         {
-            "name": "plugin-example-image",
+            "name": "image",
             "title": "使用图片匹配",
             "matches": [
                 {
@@ -107,7 +107,7 @@
             ]
         },
         {
-            "name": "plugin-example-code",
+            "name": "code",
             "title": "使用code匹配（简单）",
             "type": "code",
             "matches": [
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "name": "plugin-example-backend",
+            "name": "backend",
             "title": "使用backend匹配(简单）",
             "type": "backend",
             "matches": [
@@ -123,13 +123,26 @@
             ]
         },
         {
-            "name": "plugin-example-view",
+            "name": "view",
             "title": "显示view",
             "type": "view",
             "matches": [
                 {
                     "type": "regex",
                     "regex": "/^\\s*[a-zA-Z0-9]+\\s*$/"
+                }
+            ]
+        },
+        {
+            "name": "editor",
+            "title": "使用editor匹配",
+            "type": "web",
+            "matches": [
+                {
+                    "type": "editor",
+                    "faDataTypes": [
+                        "FileEditorExample"
+                    ]
                 }
             ]
         }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editor</title>
+    <style>
+        body,html{ padding:0;margin:0; }
+    </style>
+</head>
+<body>
+<div style="width:100%;height:100%;position:absolute;display:flex;flex-direction:column;">
+    <div style="padding:1rem;border-bottom:1px solid #EEE;">
+        这里模拟一个编辑器，跨技术栈可以很方便的使用 iframe 嵌入
+    </div>
+    <div style="padding:1rem;flex-grow:1;">
+        <textarea id="content" style="width:100%;height:100%;border:1px solid #111;box-sizing:border-box;"></textarea>
+    </div>
+</div>
+<script>
+    window.editorInit = function (success, error) {
+        console.log('editorInit', success, error);
+        success && success();
+    };
+    window.editorGetContent = function (success, error) {
+        console.log('editorGetContent', success, error);
+        success(document.querySelector('#content').value);
+    };
+    window.editorSetContent = function (success, error, content) {
+        console.log('editorSetContent', success, error, content);
+        document.querySelector('#content').value = content;
+        success && success();
+    };
+    document.querySelector('#content').addEventListener('input', function () {
+        console.log('editorContentChange');
+        window.parent.postMessage({
+            type: 'ContentChange',
+            data: document.querySelector('#content').value
+        }, '*');
+    });
+</script>
+</body>
+</html>
