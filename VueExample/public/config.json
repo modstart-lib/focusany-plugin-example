@@ -1,9 +1,9 @@
 {
     "$schema": "https://focusany.com/sdk/config.schema.json",
-    "name": "FileEditorExample",
+    "name": "VueExample",
     "version": "1.0.0",
-    "title": "通用文件编辑器",
-    "description": "支持文件通用编辑，可以快速实现自定义的文件类型编辑器",
+    "title": "Vue插件开发示例",
+    "description": "Vue插件开发示例，支持Vue插件开发",
     "author": "FocusAny",
     "homepage": "https://focusany.com",
     "preload": "preload.cjs",
@@ -17,17 +17,8 @@
             "title": "文件编辑",
             "type": "web",
             "matches": [
-                "FileEditorExample",
-                "文件编辑示例",
-                {
-                    "type": "editor",
-                    "extensions": [
-                        "fadata"
-                    ],
-                    "faDataTypes": [
-                        "FileEditorExample"
-                    ]
-                }
+                "VueExample",
+                "Vue示例"
             ]
         }
     ],
