@@ -21,6 +21,7 @@
                 "文件编辑示例",
                 {
                     "type": "editor",
+                    "name": "editor",
                     "extensions": [
                         "fadata"
                     ],

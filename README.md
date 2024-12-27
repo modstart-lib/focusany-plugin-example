@@ -8,6 +8,10 @@
 
 基于 vue3 + vite + tailwindcss 开发的基础文件编辑器，可以使用很轻量的方式集成一些文件编辑器。
 
+## ReactExample
+
+基于 react + vite + tailwindcss 开发的插件示例。
+
 ## VueExample
 
 基于 vue3 + vite + tailwindcss 开发的插件示例，可以查看到如何使用 vue3 开发插件。

@@ -102,7 +102,7 @@ const doOpenNew = async () => {
     if (!path) {
         return
     }
-    await callIframe('editorSetContent', '')
+    await callIframe('editorSetContent', null)
     filePath.value = path
 };
 const doSave = async () => {
@@ -142,7 +142,7 @@ const doOpenFile = async (file: string) => {
     filePath.value = file
     Message.success('已经打开')
 }
-const doExport = async (type:string) => {
+const doExport = async (type: string) => {
     Message.warning(`导出${type}格式，待实现`)
 }
 onMounted(async () => {
@@ -153,19 +153,23 @@ onMounted(async () => {
             saveDebounce(data)
         }
     })
-    const history = focusany.dbStorage.getItem('history')
-    if (history) {
-        fileHistories.value = history
-    }
-})
-
-focusany.onPluginReady((data) => {
-    if (data.actionMatch?.name === 'editor') {
-        if (data.actionMatchFiles && data.actionMatchFiles.length > 0) {
-            doOpenFile(data.actionMatchFiles[0].path).then()
+    if (window.focusany) {
+        const history = focusany.dbStorage.getItem('history')
+        if (history) {
+            fileHistories.value = history
         }
     }
 })
+
+if (window.focusany) {
+    focusany.onPluginReady((data) => {
+        if (data.actionMatch?.name === 'editor') {
+            if (data.actionMatchFiles && data.actionMatchFiles.length > 0) {
+                doOpenFile(data.actionMatchFiles[0].path).then()
+            }
+        }
+    })
+}
 </script>
 
 <template>
