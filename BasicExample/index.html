@@ -66,8 +66,7 @@
                 <button onclick="focusany.getClipboardText()">getClipboardText</button>
                 <button onclick="focusany.shellOpenExternal('https://focusany.com')">shellOpenExternal</button>
                 <button onclick="focusany.shellOpenPath(pluginData.pluginRoot+'/logo.svg')">shellOpenPath</button>
-                <button onclick="focusany.shellShowItemInFolder(pluginData.pluginRoot)">shellShowItemInFolder
-                </button>
+                <button onclick="focusany.shellShowItemInFolder(pluginData.pluginRoot)">shellShowItemInFolder</button>
                 <button onclick="focusany.shellBeep()">shellBeep</button>
                 <button onclick="focusany.getFileIcon('.txt')">getFileIcon.txt</button>
                 <button onclick="focusany.getFileIcon('folder')">getFileIcon.folder</button>
@@ -85,6 +84,10 @@
                 <button onclick='focusany.setAction({"name": "plugin-example-dynamic","title": "测试动态匹配","matches": [{"type": "key","key": "dynamic"}]})'>setAction</button>
                 <button onclick="focusany.removeAction('plugin-example-dynamic')">removeAction</button>
                 <button onclick="focusany.sendBackendEvent('testEvent',{a:1,b:2}).then(o=>log('result',o))">sendBackendEvent</button>
+                <button onclick="focusany.getUser()">getUser</button>
+                <button onclick="focusany.getUserAccessToken()">getUserAccessToken</button>
+                <button onclick="focusany.openGoodsPayment({goodsId:'1735868559365874384'})">openGoodsPayment</button>
+                <button onclick="focusany.queryGoodsOrders()">queryGoodsOrders</button>
             </div>
         </div>
         <div class="item">
