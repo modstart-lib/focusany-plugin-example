@@ -117,25 +117,25 @@ html, body {
     margin-right: 4px;
 }
 
-.container.fastpanel-container {
+.container.view-container {
     font-size: 12px;
 }
 
-.container.fastpanel-container .title {
+.container.view-container .title {
     font-size: 12px;
     padding: 5px;
 }
 
-.container.fastpanel-container .operate {
+.container.view-container .operate {
     padding: 2px;
 }
 
-.container.fastpanel-container .operate .item {
+.container.view-container .operate .item {
     padding: 2px;
     margin-bottom: 2px;
 }
 
-.container.fastpanel-container .operate .item .button button {
+.container.view-container .operate .item .button button {
     font-size: 10px;
     line-height: 1rem;
     padding: 0 3px;
@@ -143,19 +143,19 @@ html, body {
     border-radius: 3px;
 }
 
-.container.fastpanel-container .log {
+.container.view-container .log {
     top: auto;
     left: 0;
     width: 100vw;
     height: 3rem;
 }
 
-.container.fastpanel-container .log pre {
+.container.view-container .log pre {
     margin: 2px;
     line-height: 1rem;
     min-height: auto;
     padding:2px;
 }
-.container.fastpanel-container .log pre span {
+.container.view-container .log pre span {
     font-size:10px;
 }

@@ -14,7 +14,7 @@ const emit = defineEmits([
 </script>
 
 <template>
-    <div class="p-2 w-12">
+    <div class="py-2 w-12 text-center">
         <a-popover position="right">
             <a-button class="mb-2" type="text"
                       @click="emit('open')">

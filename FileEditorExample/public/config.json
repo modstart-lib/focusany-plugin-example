@@ -9,6 +9,9 @@
     "preload": "preload.cjs",
     "logo": "logo.svg",
     "main": "index.html",
+    "permissions": [
+        "File"
+    ],
     "setting": {
     },
     "actions": [
@@ -23,7 +26,7 @@
                     "type": "editor",
                     "name": "editor",
                     "extensions": [
-                        "fadata"
+                        "fada"
                     ],
                     "faDataTypes": [
                         "FileEditorExample"

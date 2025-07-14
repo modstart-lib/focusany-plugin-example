@@ -6,7 +6,7 @@
     "author": "focusany",
     "description": "示例插件说明",
     "main": "index.html",
-    "mainFastPanel": "fastpanel.html",
+    "mainView": "view.html",
     "logo": "logo.svg",
     "preload": "preload.cjs",
     "actions": [
@@ -108,7 +108,7 @@
         },
         {
             "name": "code",
-            "title": "使用code匹配（简单）",
+            "title": "运行代码",
             "type": "code",
             "matches": [
                 "example-code"
@@ -127,7 +127,7 @@
         },
         {
             "name": "backend",
-            "title": "使用backend匹配(简单）",
+            "title": "运行后端代码",
             "type": "backend",
             "matches": [
                 "example-backend"
@@ -137,6 +137,10 @@
             "name": "view",
             "title": "显示view",
             "type": "view",
+            "data": {
+                "showMainPanel": true,
+                "showFastPanel": true
+            },
             "matches": [
                 {
                     "type": "regex",
