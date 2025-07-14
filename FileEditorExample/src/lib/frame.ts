@@ -1,7 +1,7 @@
 import {ref} from "vue";
 
 
-export const useFrame = (data: {}) => {
+export const useFrame = () => {
     const iframe = ref<HTMLIFrameElement | null>(null);
     const iframeReady = ref(false)
 

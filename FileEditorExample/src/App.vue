@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import ToolBar from "./components/ToolBar.vue";
 import {Message} from '@arco-design/web-vue';
-import {onMounted, ref, toRaw, watch} from 'vue'
-import {debounce} from "lodash-es";
+import {onMounted} from 'vue'
 import {useFrame} from "./lib/frame.ts";
 import {useFile} from "./lib/file.ts";
 import {useHistory} from "./lib/history.ts";
 
 const EDITOR_IFRAME_URL = './editor/index.html'
-const EDITOR_DEFAULT_FILE_NAME = 'NewFile.example.fada'
+const EDITOR_DEFAULT_FILE_NAME = 'NewFile.example.fad'
 const EDITOR_FILE_TYPE = 'FileEditorExample'
+const EDITOR_FILE_CONTENT = '默认内容'
 
 const {
     iframe,
@@ -26,6 +26,7 @@ const {
 } = useFile({
     EDITOR_DEFAULT_FILE_NAME,
     EDITOR_FILE_TYPE,
+    EDITOR_FILE_CONTENT,
     callIframe,
 })
 const {
@@ -38,10 +39,6 @@ onMounted(async () => {
     await fileInit()
     await historyInit()
 })
-
-const doExport = async (type: string) => {
-    Message.warning(`导出${type}格式，待实现`)
-}
 if (window.focusany) {
     focusany.onPluginReady((data) => {
         if (data.actionMatch?.name === 'editor') {
@@ -53,6 +50,10 @@ if (window.focusany) {
     focusany.registerHotkey('save', () => {
         doSave()
     })
+}
+
+const doExport = async (type: string) => {
+    Message.warning(`导出${type}格式，待实现`)
 }
 </script>
 

@@ -6,19 +6,21 @@ import {Message} from "@arco-design/web-vue";
 export const useFile = (data: {
     EDITOR_DEFAULT_FILE_NAME: string,
     EDITOR_FILE_TYPE: string,
+    EDITOR_FILE_CONTENT: string,
     callIframe: any,
 }) => {
 
     const {
         EDITOR_DEFAULT_FILE_NAME,
         EDITOR_FILE_TYPE,
+        EDITOR_FILE_CONTENT,
         callIframe,
     } = data
 
     const filePath = ref('')
     const saveDebounce = debounce(async (content) => {
         if (filePath.value) {
-            await focusany.fada.write(EDITOR_FILE_TYPE, filePath.value, {
+            await focusany.fad.write(EDITOR_FILE_TYPE, filePath.value, {
                 content
             })
         }
@@ -45,7 +47,7 @@ export const useFile = (data: {
         if (!path) {
             return
         }
-        await callIframe('editorSetContent', '')
+        await callIframe('editorSetContent', EDITOR_FILE_CONTENT)
         filePath.value = path
     };
 
@@ -59,7 +61,7 @@ export const useFile = (data: {
             return
         }
         const content = await callIframe('editorGetContent')
-        await focusany.fada.write(EDITOR_FILE_TYPE, filePath.value, {
+        await focusany.fad.write(EDITOR_FILE_TYPE, filePath.value, {
             content
         })
         Message.success('保存成功')
@@ -68,7 +70,7 @@ export const useFile = (data: {
     const doOpenFile = async (file: string) => {
         let data
         try {
-            data = await focusany.fada.read(EDITOR_FILE_TYPE, file)
+            data = await focusany.fad.read(EDITOR_FILE_TYPE, file)
         } catch (e: any) {
             Message.error(e.toString())
             return

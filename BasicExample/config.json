@@ -155,7 +155,7 @@
             "matches": [
                 {
                     "type": "editor",
-                    "faDataTypes": [
+                    "fadTypes": [
                         "FileEditorExample"
                     ]
                 }

@@ -26,9 +26,9 @@
                     "type": "editor",
                     "name": "editor",
                     "extensions": [
-                        "fada"
+                        "fad"
                     ],
-                    "faDataTypes": [
+                    "fadTypes": [
                         "FileEditorExample"
                     ]
                 }
