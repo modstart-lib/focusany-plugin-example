@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, body {
+    --primary-1: 255, 255, 255;
+    --primary-2: 207, 207, 207;
+    --primary-3: 160, 160, 160;
+    --primary-4: 112, 112, 112;
+    --primary-5: 65, 65, 65;
+    --primary-6: 17, 17, 17;
+    --primary-7: 17, 13, 13;
+    --primary-8: 17, 9, 9;
+    --primary-9: 17, 4, 6;
+    --primary-10: 17, 0, 2;
+}
+
+body[data-theme="dark"] {
+    --primary-1: 17, 0, 2;
+    --primary-2: 17, 4, 6;
+    --primary-3: 17, 9, 9;
+    --primary-4: 17, 13, 13;
+    --primary-5: 17, 17, 17;
+    --primary-6: 65, 65, 65;
+    --primary-7: 112, 112, 112;
+    --primary-8: 160, 160, 160;
+    --primary-9: 207, 207, 207;
+    --primary-10: 255, 255, 255;
+}
+
+/////////// arco start ///////////
+.arco-btn, .arco-input-wrapper {
+    border-radius: 0.5rem;
+}
+
+.arco-tabs-tab-title {
+    &:before {
+        border-radius: 0.5rem !important;
+    }
+}
+
+.arco-modal-confirm {
+    .arco-modal-header {
+        border-bottom: none;
+    }
+
+    .arco-modal-footer {
+        border-top: none;
+    }
+}
+
+[data-theme="dark"] {
+    .arco-radio-group-button {
+        .arco-radio-button {
+            color: #CCC;
+        }
+    }
+}
+
+/////////// arco end ///////////

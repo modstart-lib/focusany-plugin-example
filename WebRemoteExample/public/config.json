@@ -1,0 +1,40 @@
+{
+    "$schema": "https://focusany.com/sdk/config.schema.json",
+    "name": "WebRemoteExample",
+    "version": "1.0.0",
+    "title": "离线应用示例",
+    "description": "离线应用示例",
+    "author": "FocusAny",
+    "homepage": "https://focusany.com",
+    "preload": "preload.cjs",
+    "logo": "logo.svg",
+    "main": "index.html",
+    "setting": {
+        "autoDetach": true,
+        "width": "90%",
+        "height": "90%",
+        "remoteWebCacheEnable": true,
+        "moreMenu": [
+            {
+                "name": "debug",
+                "title": "Debug网页"
+            }
+        ]
+    },
+    "actions": [
+        {
+            "name": "default",
+            "title": "离线应用示例",
+            "matches": [
+                "离线应用示例"
+            ]
+        }
+    ],
+    "development": {
+        "env": "dev",
+        "main": "http://localhost:5173",
+        "releaseDoc": "../release.md",
+        "contentDoc": "../content.md",
+        "previewDoc": "../preview.md"
+    }
+}

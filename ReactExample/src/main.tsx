@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client'
 import "@arco-design/web-react/dist/css/arco.css";
 import './index.css'
 import App from './App.tsx'
+import "focusany-sdk/shim";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

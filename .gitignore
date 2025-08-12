@@ -2,3 +2,5 @@
 node_modules/
 dist/
 dist-ssr/
+.github
+.vscode
