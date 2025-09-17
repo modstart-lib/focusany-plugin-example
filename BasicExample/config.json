@@ -176,8 +176,8 @@
     "mcp": {
         "tools": [
             {
-                "name": "basic-example-weather",
-                "description": "Get the current weather for a given city.",
+                "name": "GetWeather",
+                "description": "获取指定城市的天气信息",
                 "inputSchema": {
                     "type": "object",
                     "properties": {

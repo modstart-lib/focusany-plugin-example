@@ -25,10 +25,10 @@ module.exports = {
         }
     },
     "mcpTool": {
-        "basic-example-weather": async (focusany, data) => {
-            console.log('basic-example-tool.focusany', focusany);
-            console.log('basic-example-tool.data', data);
-            focusany.showToast('MCP工具已执行:'+ JSON.stringify(data));
+        "GetWeather": async (focusany, data) => {
+            console.log('GetWeather.focusany', focusany);
+            console.log('GetWeather.data', data);
+            focusany.showToast('MCP工具已执行:' + JSON.stringify(data));
             const res = await focusany.callPage('testCallPage', {test: 'data from MCP tool'});
             return {
                 content: [
