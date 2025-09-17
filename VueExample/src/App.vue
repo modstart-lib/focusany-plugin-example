@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import {onMounted, ref} from 'vue'
 import DemoComponent from './components/DemoComponent.vue'
 import StoreComponent from './components/StoreComponent.vue'
-import { recordsStore } from './store/recordsStore'
+import {recordsStore} from './store/recordsStore'
 
 const count = ref(0)
 
@@ -49,12 +49,12 @@ focusany.onPluginReady((data) => {
                 <!-- 左侧：Demo组件 -->
                 <div>
                     <h2 class="text-lg font-medium text-gray-900 mb-4">组件示例</h2>
-                    <DemoComponent />
+                    <DemoComponent/>
                 </div>
 
                 <!-- 右侧：Store演示 -->
                 <div>
-                    <StoreComponent />
+                    <StoreComponent/>
                 </div>
             </div>
         </main>

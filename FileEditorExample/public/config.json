@@ -2,7 +2,7 @@
     "$schema": "https://focusany.com/sdk/config.schema.json",
     "name": "FileEditorExample",
     "version": "1.0.0",
-    "title": "通用文件编辑器",
+    "title": "Editor插件示例",
     "description": "支持文件通用编辑，可以快速实现自定义的文件类型编辑器",
     "author": "FocusAny",
     "homepage": "https://focusany.com",
@@ -17,11 +17,10 @@
     "actions": [
         {
             "name": "default",
-            "title": "文件编辑",
+            "title": "Editor插件示例",
             "type": "web",
             "matches": [
                 "FileEditorExample",
-                "文件编辑示例",
                 {
                     "type": "editor",
                     "name": "editor",

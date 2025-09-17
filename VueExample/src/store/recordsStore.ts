@@ -129,7 +129,7 @@ const actions = {
     // 保存记录到存储
     async saveRecords() {
         try {
-            await focusany.dbStorage.setItem("records", state.records);
+            await focusany.dbStorage.setItem("records", JSON.parse(JSON.stringify(state.records)));
             console.log("Records 数据已保存");
         } catch (error) {
             console.error("保存 records 数据失败:", error);

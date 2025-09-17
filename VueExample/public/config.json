@@ -2,8 +2,8 @@
     "$schema": "https://focusany.com/sdk/config.schema.json",
     "name": "VueExample",
     "version": "1.0.0",
-    "title": "Vue插件开发示例",
-    "description": "Vue插件开发示例，支持Vue插件开发",
+    "title": "Vue插件示例",
+    "description": "Vue插件示例，支持Vue插件开发",
     "author": "FocusAny",
     "homepage": "https://focusany.com",
     "preload": "preload.cjs",
@@ -14,11 +14,10 @@
     "actions": [
         {
             "name": "default",
-            "title": "Vue示例",
+            "title": "Vue插件示例",
             "type": "web",
             "matches": [
-                "VueExample",
-                "Vue示例"
+                "VueExample"
             ]
         }
     ],

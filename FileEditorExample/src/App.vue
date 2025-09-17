@@ -39,21 +39,38 @@ onMounted(async () => {
     await fileInit()
     await historyInit()
 })
-if (window.focusany) {
-    focusany.onPluginReady((data) => {
-        if (data.actionMatch?.name === 'editor') {
-            if (data.actionMatchFiles && data.actionMatchFiles.length > 0) {
-                doOpenFile(data.actionMatchFiles[0].path).then()
-            }
+focusany.onPluginReady((data) => {
+    if (data.actionMatch?.name === 'editor') {
+        if (data.actionMatchFiles && data.actionMatchFiles.length > 0) {
+            doOpenFile(data.actionMatchFiles[0].path).then()
         }
-    })
-    focusany.registerHotkey('save', () => {
-        doSave()
-    })
-}
+    }
+})
+focusany.registerHotkey('save', () => {
+    doSave()
+})
 
 const doExport = async (type: string) => {
-    Message.warning(`导出${type}格式，待实现`)
+    if (!['png', 'svg'].includes(type)) {
+        Message.warning(`不支持导出${type}格式`)
+        return;
+    }
+    const defaultMap = {
+        'png': 'image.png',
+        'svg': 'image.svg',
+    }
+    if ('png' === type) {
+        const data = await callIframe('editorGetImage')
+        focusany.util.save(defaultMap[type], data as any, {isBase64: true})
+        Message.success('导出PNG成功')
+        return;
+    }
+    if ('svg' === type) {
+        const data = await callIframe('editorGetSvg')
+        focusany.util.save(defaultMap[type], data as any, {isBase64: false})
+        Message.success('导出SVG成功')
+        return;
+    }
 }
 </script>
 
@@ -66,7 +83,7 @@ const doExport = async (type: string) => {
                 @open="doOpen"
                 @openNew="doOpenNew"
                 @save="doSave"
-                @saveAs="doSave(false)"
+                @saveAs="doSave(true)"
                 @open-file="doOpenFile"
                 @export="doExport"
             />

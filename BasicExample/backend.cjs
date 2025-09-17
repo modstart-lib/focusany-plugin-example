@@ -23,6 +23,26 @@ module.exports = {
             focusany.showToast('后台进程已执行');
             return 'ok'
         }
+    },
+    "mcpTool": {
+        "basic-example-weather": async (focusany, data) => {
+            console.log('basic-example-tool.focusany', focusany);
+            console.log('basic-example-tool.data', data);
+            focusany.showToast('MCP工具已执行:'+ JSON.stringify(data));
+            const res = await focusany.callPage('testCallPage', {test: 'data from MCP tool'});
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: `MCP工具执行成功，${data.city}的天气是晴天。`,
+                    },
+                    {
+                        type: "json",
+                        json: res
+                    }
+                ]
+            }
+        }
     }
 }
 

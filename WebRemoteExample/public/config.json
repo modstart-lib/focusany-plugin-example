@@ -2,8 +2,8 @@
     "$schema": "https://focusany.com/sdk/config.schema.json",
     "name": "WebRemoteExample",
     "version": "1.0.0",
-    "title": "离线应用示例",
-    "description": "离线应用示例",
+    "title": "离线插件示例",
+    "description": "离线插件示例",
     "author": "FocusAny",
     "homepage": "https://focusany.com",
     "preload": "preload.cjs",
@@ -24,9 +24,9 @@
     "actions": [
         {
             "name": "default",
-            "title": "离线应用示例",
+            "title": "离线插件示例",
             "matches": [
-                "离线应用示例"
+                "WebRemoteExample"
             ]
         }
     ],

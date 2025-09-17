@@ -1,31 +1,34 @@
 {
     "$schema": "https://focusany.com/sdk/config.schema.json",
-    "name": "ReactExample",
+    "name": "FooBar",
     "version": "1.0.0",
-    "title": "React插件示例",
-    "description": "React插件示例，支持React插件开发",
+    "title": "测试插件",
+    "description": "测试插件说明",
     "author": "FocusAny",
     "homepage": "https://focusany.com",
     "preload": "preload.cjs",
     "logo": "logo.svg",
     "main": "index.html",
     "setting": {
+        "keepCodeDevTools": false,
+        "width": "80%",
+        "height": "80%",
+        "autoDetach": true
     },
     "actions": [
         {
             "name": "default",
-            "title": "React插件示例",
             "type": "web",
             "matches": [
-                "ReactExample"
+                "测试插件"
             ]
         }
     ],
     "development": {
         "env": "dev",
         "main": "http://localhost:5173",
-        "releaseDoc": "../release.md",
-        "contentDoc": "../content.md",
-        "previewDoc": "../preview.md"
+        "releaseDoc": "../focusany-plugin/release.md",
+        "contentDoc": "../focusany-plugin/content.md",
+        "previewDoc": "../focusany-plugin/preview.md"
     }
 }

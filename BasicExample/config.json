@@ -2,13 +2,16 @@
     "$schema": "https://focusany.com/sdk/config.schema.json",
     "name": "BasicExample",
     "version": "1.0.0",
-    "title": "示例插件",
+    "title": "基础插件示例",
     "author": "focusany",
-    "description": "示例插件说明",
+    "description": "基础插件示例说明",
     "main": "index.html",
     "mainView": "view.html",
     "logo": "logo.svg",
     "preload": "preload.cjs",
+    "permissions": [
+        "File"
+    ],
     "actions": [
         {
             "name": "text-simple",
@@ -115,6 +118,14 @@
             ]
         },
         {
+            "name": "code-command",
+            "title": "运行代码（下拉动态选择）",
+            "type": "code",
+            "matches": [
+                "example-code-command"
+            ]
+        },
+        {
             "name": "command",
             "title": "执行命令",
             "type": "command",
@@ -161,5 +172,25 @@
                 }
             ]
         }
-    ]
+    ],
+    "mcp": {
+        "tools": [
+            {
+                "name": "basic-example-weather",
+                "description": "Get the current weather for a given city.",
+                "inputSchema": {
+                    "type": "object",
+                    "properties": {
+                        "city": {
+                            "type": "string",
+                            "title": "City"
+                        }
+                    },
+                    "required": [
+                        "city"
+                    ]
+                }
+            }
+        ]
+    }
 }

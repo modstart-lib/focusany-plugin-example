@@ -9,7 +9,7 @@ export const useFrame = () => {
         iframeReady.value = true
     }
 
-    const callIframe = (method: string, ...args: any[]) => {
+    const callIframe = <T extends any>(method: string, ...args: any[]): Promise<T> => {
         return new Promise((resolve, reject) => {
             const callIt = () => {
                 if (!iframeReady.value) {

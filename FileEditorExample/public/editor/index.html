@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editor</title>
     <style>
-        body,html{ padding:0;margin:0; }
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -20,26 +23,68 @@
     </div>
 </div>
 <script>
-    window.editorInit = function (success, error) {
-        console.log('editorInit', success, error);
-        success && success();
-    };
-    window.editorGetContent = function (success, error) {
-        console.log('editorGetContent', success, error);
-        success(document.querySelector('#content').value);
-    };
-    window.editorSetContent = function (success, error, content) {
-        console.log('editorSetContent', success, error, content);
-        document.querySelector('#content').value = content;
-        success && success();
-    };
-    document.querySelector('#content').addEventListener('input', function () {
-        console.log('editorContentChange');
-        window.parent.postMessage({
-            type: 'ContentChange',
-            data: document.querySelector('#content').value
-        }, '*');
-    });
+    (function () {
+        const getData = async () => {
+            return new Promise((resolve) => {
+                resolve(document.querySelector('#content').value);
+            });
+        };
+        const setData = async (data) => {
+            return new Promise((resolve) => {
+                document.querySelector('#content').value = data;
+                resolve();
+            });
+        };
+        window.editorInit = function (success, error) {
+            console.log('editorInit', success, error);
+            success();
+        };
+        window.editorGetContent = function (success, error) {
+            console.log('editorGetContent', success, error);
+            getData().then(success).catch(error);
+        };
+        window.editorSetContent = function (success, error, content) {
+            console.log('editorSetContent', success, error, content);
+            setData(content).then(success).catch(error);
+        };
+        window.editorGetImage = function (success, error) {
+            console.log('editorGetImage', success, error);
+            setTimeout(() => {
+                success('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAANElEQVR4nO3BAQ0AAADCoPdPbQ43oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfgx1lAABqFDyOQAAAABJRU5ErkJggg==');
+            }, 1000);
+        };
+        window.editorGetSvg = function (success, error) {
+            console.log('editorGetSvg', success, error);
+            setTimeout(() => {
+                success('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+            }, 1000);
+        };
+        // 两种二选一，第一种，使用 input 事件监听内容变化
+        document.querySelector('#content').addEventListener('input', function () {
+            console.log('editorContentChange');
+            window.parent.postMessage({
+                type: 'ContentChange',
+                data: document.querySelector('#content').value
+            }, '*');
+        });
+        // 两种二选一，第二种，使用定时器轮询内容变化
+        let lastContentJson = null;
+        setInterval(async () => {
+            const content = await getData();
+            if(!lastContentJson){
+                lastContentJson = JSON.stringify(content);
+                return;
+            }
+            if (lastContentJson !== JSON.stringify(content)) {
+                lastContentJson = JSON.stringify(content);
+                console.log('editorContentChange');
+                window.parent.postMessage({
+                    type: 'ContentChange',
+                    data: content,
+                }, '*');
+            }
+        }, 1000);
+    })();
 </script>
 </body>
 </html>

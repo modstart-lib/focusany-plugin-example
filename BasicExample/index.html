@@ -1,170 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./focusany-shim.js"></script>
 </head>
+
 <body>
-<div class="container">
-    <div class="title">
-        插件示例
+    <div class="container">
+        <div class="title">
+            插件示例
+        </div>
+        <div class="operate">
+            <div class="item">
+                <div class="label">基础操作</div>
+                <div class="button">
+                    <button onclick="focusany.getNativeId()"><span>设备ID</span><span>getNativeId</span></button>
+                    <button onclick="focusany.getNativeId()"><span>设备ID</span><span>getNativeId</span></button>
+                    <button onclick="focusany.getAppVersion()"><span>软件版本</span><span>getAppVersion</span></button>
+                    <button
+                        onclick="focusany.isMainWindowShown()"><span>主窗口是否显示</span><span>isMainWindowShown</span></button>
+                    <button onclick="focusany.hideMainWindow()"><span>隐藏主窗口</span><span>hideMainWindow</span></button>
+                    <button onclick="focusany.showMainWindow()"><span>显示主窗口</span><span>showMainWindow</span></button>
+                    <button
+                        onclick="focusany.isFastPanelWindowShown()"><span>快捷面板是否显示</span><span>isFastPanelWindowShown</span></button>
+                    <button
+                        onclick="focusany.hideFastPanelWindow()"><span>隐藏快捷面板</span><span>hideFastPanelWindow</span></button>
+                    <button
+                        onclick="focusany.showFastPanelWindow()"><span>显示快捷面板</span><span>showFastPanelWindow</span></button>
+                    <button
+                        onclick="focusany.showOpenDialog({title:'弹窗示例 dialog.showOpenDialog'})"><span>打开文件对话框</span><span>showOpenDialog</span></button>
+                    <button
+                        onclick="focusany.showSaveDialog({title:'弹窗示例 dialog.showSaveDialog'})"><span>保存文件对话框</span><span>showSaveDialog</span></button>
+                    <button
+                        onclick="focusany.setExpendHeight(600)"><span>设置扩展高度</span><span>setExpendHeight</span></button>
+                    <button
+                        onclick="focusany.setSubInput((value)=>{ log('setSubInput.change',value) },'new placeholder', true)"><span>设置子输入框</span><span>setSubInput</span></button>
+                    <button onclick="focusany.removeSubInput()"><span>移除子输入框</span><span>removeSubInput</span></button>
+                    <button
+                        onclick="focusany.setSubInputValue('hello world')"><span>设置子输入框内容</span><span>setSubInputValue</span></button>
+                    <button onclick="focusany.subInputBlur()"><span>子输入框失焦</span><span>subInputBlur</span></button>
+                    <button onclick="focusany.getPluginRoot()"><span>插件根目录</span><span>getPluginRoot</span></button>
+                    <button onclick="focusany.getPluginEnv()"><span>插件环境</span><span>getPluginEnv</span></button>
+                    <button onclick="focusany.getPluginConfig()"><span>插件配置</span><span>getPluginConfig</span></button>
+                    <button onclick="focusany.getPluginInfo()"><span>插件信息</span><span>getPluginInfo</span></button>
+                    <button
+                        onclick="focusany.getQuery(pluginData.requestId)"><span>获取请求参数</span><span>getQuery</span></button>
+                    <button onclick="focusany.getPath('home')"><span>主目录路径</span><span>getPath('home')</span></button>
+                    <button
+                        onclick="focusany.getPath('appData')"><span>应用数据路径</span><span>getPath('appData')</span></button>
+                    <button
+                        onclick="focusany.getPath('userData')"><span>用户数据路径</span><span>getPath('userData')</span></button>
+                    <button onclick="focusany.getPath('temp')"><span>临时目录路径</span><span>getPath('temp')</span></button>
+                    <button onclick="focusany.getPath('exe')"><span>可执行文件路径</span><span>getPath('exe')</span></button>
+                    <button
+                        onclick="focusany.getPath('desktop')"><span>桌面路径</span><span>getPath('desktop')</span></button>
+                    <button
+                        onclick="focusany.getPath('documents')"><span>文档路径</span><span>getPath('documents')</span></button>
+                    <button
+                        onclick="focusany.getPath('downloads')"><span>下载路径</span><span>getPath('downloads')</span></button>
+                    <button onclick="focusany.getPath('music')"><span>音乐路径</span><span>getPath('music')</span></button>
+                    <button
+                        onclick="focusany.getPath('pictures')"><span>图片路径</span><span>getPath('pictures')</span></button>
+                    <button
+                        onclick="focusany.getPath('videos')"><span>视频路径</span><span>getPath('videos')</span></button>
+                    <button onclick="focusany.getPath('logs')"><span>日志路径</span><span>getPath('logs')</span></button>
+                    <button
+                        onclick="focusany.showToast('信息提示',{status:'info'})"><span>信息提示</span><span>showToast.info</span></button>
+                    <button
+                        onclick="focusany.showToast('复制成功',{status:'success'})"><span>复制成功</span><span>showToast.success</span></button>
+                    <button
+                        onclick="focusany.showToast('操作失败',{status:'error'})"><span>操作失败</span><span>showToast.error</span></button>
+                    <button
+                        onclick="focusany.showNotification('Hello World!')"><span>系统通知</span><span>showNotification</span></button>
+                    <button
+                        onclick="focusany.showMessageBox('Hello World!',{yes:'是',no:'否'})"><span>消息弹窗</span><span>showMessageBox</span></button>
+                    <button
+                        onclick="log('isMacOs',focusany.isMacOs())"><span>是否MacOS</span><span>isMacOs</span></button>
+                    <button
+                        onclick="log('isWindows',focusany.isWindows())"><span>是否Windows</span><span>isWindows</span></button>
+                    <button
+                        onclick="log('isLinux',focusany.isLinux())"><span>是否Linux</span><span>isLinux</span></button>
+                    <button
+                        onclick="log('getPlatformArch',focusany.getPlatformArch())"><span>平台架构</span><span>getPlatformArch</span></button>
+                    <button
+                        onclick="focusany.copyImage(pluginData.pluginRoot+'/logo.svg')"><span>复制图片</span><span>copyImage</span></button>
+                    <button onclick="focusany.copyText('hello world')"><span>复制文本</span><span>copyText</span></button>
+                    <button
+                        onclick="focusany.copyFile(pluginData.pluginRoot+'/index.html')"><span>复制文件</span><span>copyFile</span></button>
+                    <button
+                        onclick="focusany.getClipboardImage()"><span>获取剪贴板图片</span><span>getClipboardImage</span></button>
+                    <button
+                        onclick="focusany.getClipboardText()"><span>获取剪贴板文本</span><span>getClipboardText</span></button>
+                    <button
+                        onclick="focusany.shellOpenExternal('https://focusany.com')"><span>外部链接</span><span>shellOpenExternal</span></button>
+                    <button
+                        onclick="focusany.shellOpenPath(pluginData.pluginRoot+'/logo.svg')"><span>打开文件</span><span>shellOpenPath</span></button>
+                    <button
+                        onclick="focusany.shellShowItemInFolder(pluginData.pluginRoot)"><span>文件夹定位</span><span>shellShowItemInFolder</span></button>
+                    <button onclick="focusany.shellBeep()"><span>蜂鸣提示</span><span>shellBeep</span></button>
+                    <button
+                        onclick="focusany.getFileIcon('.txt')"><span>文件图标.txt</span><span>getFileIcon.txt</span></button>
+                    <button
+                        onclick="focusany.getFileIcon('folder')"><span>文件夹图标</span><span>getFileIcon.folder</span></button>
+                    <button
+                        onclick="focusany.getFileIcon(pluginData.pluginRoot)"><span>文件图标</span><span>getFileIcon</span></button>
+                    <button
+                        onclick="log('getCursorScreenPoint',focusany.getCursorScreenPoint())"><span>鼠标坐标</span><span>getCursorScreenPoint</span></button>
+                    <button
+                        onclick="log('getDisplayNearestPoint',focusany.getDisplayNearestPoint({x:1,y:2}))"><span>最近显示器</span><span>getDisplayNearestPoint</span></button>
+                    <button
+                        onclick="focusany.getClipboardFiles()"><span>获取剪贴板文件</span><span>getClipboardFiles</span></button>
+                    <button
+                        onclick="focusany.createBrowserWindow(pluginData.pluginRoot+'/dialog.html')"><span>新建窗口</span><span>createBrowserWindow</span></button>
+                    <button
+                        onclick="focusany.screenCapture((data)=>{ log('screenCapture',data) })"><span>屏幕截图</span><span>screenCapture</span></button>
+                    <button onclick="focusany.outPlugin()"><span>退出插件</span><span>outPlugin</span></button>
+                    <button onclick="focusany.isDarkColors()"><span>暗色模式</span><span>isDarkColors</span></button>
+                    <button onclick="focusany.redirect('截图')"><span>重定向</span><span>redirect</span></button>
+                    <button onclick="focusany.getActions()"><span>获取动作</span><span>getActions</span></button>
+                    <button
+                        onclick='focusany.setAction({"name": "plugin-example-dynamic","title": "测试动态匹配","matches": [{"type": "key","key": "dynamic"}]})'><span>设置动作</span><span>setAction</span></button>
+                    <button
+                        onclick="focusany.removeAction('plugin-example-dynamic')"><span>移除动作</span><span>removeAction</span></button>
+                    <button
+                        onclick="focusany.sendBackendEvent('testEvent',{a:1,b:2}).then(o=>log('result',o))"><span>发送后端事件</span><span>sendBackendEvent</span></button>
+                    <button onclick="focusany.getUser()"><span>获取用户</span><span>getUser</span></button>
+                    <button
+                        onclick="focusany.getUserAccessToken()"><span>获取用户Token</span><span>getUserAccessToken</span></button>
+                    <button onclick="focusany.listGoods()"><span>商品列表</span><span>listGoods</span></button>
+                    <button
+                        onclick="focusany.openGoodsPayment({goodsId:'1735868559365874384'})"><span>商品支付</span><span>openGoodsPayment</span></button>
+                    <button
+                        onclick="focusany.queryGoodsOrders()"><span>订单查询</span><span>queryGoodsOrders</span></button>
+                    <!--                <button onclick="focusany.apiPost('store/member')">apiPost</button>-->
+                    <button
+                        onclick="focusany.llmListModels().then(list=>{ demoData.llmList = list; })"><span>模型列表</span><span>llmListModels</span></button>
+                    <button
+                        onclick="demoData.llmList.length>0? focusany.llmChat({providerId:demoData.llmList[0].providerId,modelId:demoData.llmList[0].modelId,message:'你是什么模型'}):alert('请先获取模型列表')"><span>模型对话</span><span>llmChat</span></button>
+                    <button
+                        onclick="focusany.logInfo('test info',{a:1,b:2})"><span>日志信息</span><span>logInfo</span></button>
+                    <button
+                        onclick="focusany.logError('test error',{a:1,b:2})"><span>日志错误</span><span>logError</span></button>
+                    <button onclick="focusany.logPath()"><span>日志路径</span><span>logPath</span></button>
+                    <button onclick="focusany.logShow()"><span>显示日志</span><span>logShow</span></button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">simulate 模拟操作</div>
+                <div class="button">
+                    <button
+                        onclick="focusany.simulate.keyboardTap('h')"><span>模拟按键</span><span>keyboardTap</span></button>
+                    <button
+                        onclick="setTimeout(()=>{ focusany.simulate.typeString('hello world'); }, 3000);"><span>模拟输入</span><span>typeString</span></button>
+                    <button
+                        onclick="focusany.simulate.mouseToggle('down','left')"><span>鼠标按下</span><span>mouseToggle</span></button>
+                    <button
+                        onclick="focusany.simulate.mouseMove(100,100)"><span>鼠标移动</span><span>mouseMove</span></button>
+                    <button
+                        onclick="focusany.simulate.mouseClick('left')"><span>鼠标点击</span><span>mouseClick</span></button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">file 文件操作</div>
+                <div class="button">
+                    <button
+                        onclick="focusany.file.read('/path/to/file.txt')"><span>读取文件</span><span>read</span></button>
+                    <button
+                        onclick="focusany.file.write('~/test.txt','test')"><span>写入文件</span><span>write</span></button>
+                    <button onclick="focusany.file.ext('/path/to/file.txt')"><span>文件后缀</span><span>ext</span></button>
+                    <button
+                        onclick="focusany.file.exists('/path/to/file.txt')"><span>文件存在</span><span>exists</span></button>
+                    <button
+                        onclick="focusany.file.remove('/path/to/file.txt')"><span>删除文件</span><span>remove</span></button>
+                    <button
+                        onclick="focusany.file.writeTemp('txt','hello')"><span>保存临时</span><span>saveTemp</span></button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">db 数据操作</div>
+                <div class="button">
+                    <button
+                        onclick="demoData.dbKey=focusany.util.randomString();focusany.db.put({_id:demoData.dbKey,data:{a:1,b:2}})"><span>添加文档</span><span>db.put</span></button>
+                    <button
+                        onclick="focusany.db.put({_id:'test',data:{a:1,b:2}})"><span>添加文档.test</span><span>db.put.test</span></button>
+                    <button onclick="focusany.db.get(demoData.dbKey)"><span>获取文档</span><span>db.get</span></button>
+                    <button
+                        onclick="focusany.db.remove(demoData.dbKey)"><span>删除文档</span><span>db.remove</span></button>
+                    <button
+                        onclick="demoData.dbKeys=[focusany.util.randomString(),focusany.util.randomString()];focusany.db.bulkDocs([{_id:demoData.dbKeys[0],data:{a:1,b:2}},{_id:demoData.dbKeys[1],data:{a:1,b:2}}])"><span>批量添加</span><span>db.bulkDocs</span></button>
+                    <button
+                        onclick="focusany.db.allDocs(demoData.dbKeys)"><span>批量获取</span><span>db.allDocs</span></button>
+                    <button
+                        onclick="demoData.dbKey=focusany.util.randomString();focusany.db.postAttachment(demoData.dbKey,new Uint8Array([1,2,3]),'text/plain')"><span>保存附件</span><span>db.postAttachment</span></button>
+                    <button
+                        onclick="focusany.db.getAttachment(demoData.dbKey)"><span>获取附件</span><span>db.getAttachment</span></button>
+                    <button
+                        onclick="focusany.db.getAttachmentType(demoData.dbKey)"><span>附件类型</span><span>db.getAttachmentType</span></button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">dbStorage 数据操作</div>
+                <div class="button">
+                    <button
+                        onclick="focusany.dbStorage.setItem('test','aaa')"><span>设置存储</span><span>dbStorage.setItem</span></button>
+                    <button
+                        onclick="focusany.dbStorage.getItem('test')"><span>获取存储</span><span>dbStorage.getItem</span></button>
+                    <button
+                        onclick="focusany.dbStorage.removeItem('test')"><span>移除存储</span><span>dbStorage.removeItem</span></button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">util 工具类</div>
+                <div class="button">
+                    <button
+                        onclick="log('util.randomString',focusany.util.randomString())"><span>随机字符串</span><span>randomString</span></button>
+                    <button
+                        onclick="log('util.bufferToBase64',focusany.util.bufferToBase64(new Uint8Array([1,2,34,5,6,7,8,9,0])))"><span>Buffer转Base64</span><span>bufferToBase64</span></button>
+                    <button
+                        onclick="log('util.datetimeString',focusany.util.datetimeString())"><span>时间戳字符串</span><span>datetimeString</span></button>
+                    <button
+                        onclick="log('util.base64Encode',focusany.util.base64Encode('123'))"><span>数据转Base64</span><span>base64Encode</span></button>
+                    <button
+                        onclick="log('util.base64Decode',focusany.util.base64Decode('MTIz'))"><span>Base64转数据</span><span>base64Decode</span></button>
+                    <button
+                        onclick="log('util.md5',focusany.util.md5('123'))"><span>MD5摘要</span><span>md5</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="log">
+            <pre id="data"></pre>
+        </div>
     </div>
-    <div class="operate">
-        <div class="item">
-            <div class="label">基础操作</div>
-            <div class="button">
-                <button onclick="focusany.getNativeId()">getNativeId</button>
-                <button onclick="focusany.getAppVersion()">getAppVersion</button>
-                <button onclick="focusany.isMainWindowShown()">isMainWindowShown</button>
-                <button onclick="focusany.hideMainWindow()">hideMainWindow</button>
-                <button onclick="focusany.showMainWindow()">showMainWindow</button>
-                <button onclick="focusany.isFastPanelWindowShown()">isFastPanelWindowShown</button>
-                <button onclick="focusany.hideFastPanelWindow()">hideFastPanelWindow</button>
-                <button onclick="focusany.showFastPanelWindow()">showFastPanelWindow</button>
-                <button onclick="focusany.showOpenDialog({title:'弹窗示例 dialog.showOpenDialog'})">showOpenDialog
-                </button>
-                <button onclick="focusany.showSaveDialog({title:'弹窗示例 dialog.showSaveDialog'})">showSaveDialog
-                </button>
-                <button onclick="focusany.setExpendHeight(600)">setExpendHeight</button>
-                <button
-                    onclick="focusany.setSubInput((value)=>{ log('setSubInput.change',value) },'new placeholder', true)">
-                    setSubInput
-                </button>
-                <button onclick="focusany.removeSubInput()">removeSubInput</button>
-                <button onclick="focusany.setSubInputValue('hello world')">setSubInputValue</button>
-                <button onclick="focusany.subInputBlur()">subInputBlur</button>
-                <button onclick="focusany.getPluginRoot()">getPluginRoot</button>
-                <button onclick="focusany.getPluginEnv()">getPluginEnv</button>
-                <button onclick="focusany.getPluginConfig()">getPluginConfig</button>
-                <button onclick="focusany.getPluginInfo()">getPluginInfo</button>
-                <button onclick="focusany.getQuery(pluginData.requestId)">getQuery</button>
-                <button onclick="focusany.getPath('home')">getPath('home')</button>
-                <button onclick="focusany.getPath('appData')">getPath('appData')</button>
-                <button onclick="focusany.getPath('userData')">getPath('userData')</button>
-                <button onclick="focusany.getPath('temp')">getPath('temp')</button>
-                <button onclick="focusany.getPath('exe')">getPath('exe')</button>
-                <button onclick="focusany.getPath('desktop')">getPath('desktop')</button>
-                <button onclick="focusany.getPath('documents')">getPath('documents')</button>
-                <button onclick="focusany.getPath('downloads')">getPath('downloads')</button>
-                <button onclick="focusany.getPath('music')">getPath('music')</button>
-                <button onclick="focusany.getPath('pictures')">getPath('pictures')</button>
-                <button onclick="focusany.getPath('videos')">getPath('videos')</button>
-                <button onclick="focusany.getPath('logs')">getPath('logs')</button>
-                <button onclick="focusany.showToast('信息提示',{status:'info'})">showToast.info</button>
-                <button onclick="focusany.showToast('复制成功',{status:'success'})">showToast.success</button>
-                <button onclick="focusany.showToast('操作失败',{status:'error'})">showToast.error</button>
-                <button onclick="focusany.showNotification('Hello World!')">showNotification</button>
-                <button onclick="focusany.showMessageBox('Hello World!',{yes:'是',no:'否'})">showMessageBox</button>
-                <button onclick="log('isMacOs',focusany.isMacOs())">isMacOs</button>
-                <button onclick="log('isWindows',focusany.isWindows())">isWindows</button>
-                <button onclick="log('isLinux',focusany.isLinux())">isLinux</button>
-                <button onclick="log('getPlatformArch',focusany.getPlatformArch())">getPlatformArch</button>
-                <button onclick="focusany.copyImage(pluginData.pluginRoot+'/logo.svg')">copyImage</button>
-                <button onclick="focusany.copyText('hello world')">copyText</button>
-                <button onclick="focusany.copyFile(pluginData.pluginRoot+'/index.html')">copyFile</button>
-                <button onclick="focusany.getClipboardImage()">getClipboardImage</button>
-                <button onclick="focusany.getClipboardText()">getClipboardText</button>
-                <button onclick="focusany.shellOpenExternal('https://focusany.com')">shellOpenExternal</button>
-                <button onclick="focusany.shellOpenPath(pluginData.pluginRoot+'/logo.svg')">shellOpenPath</button>
-                <button onclick="focusany.shellShowItemInFolder(pluginData.pluginRoot)">shellShowItemInFolder</button>
-                <button onclick="focusany.shellBeep()">shellBeep</button>
-                <button onclick="focusany.getFileIcon('.txt')">getFileIcon.txt</button>
-                <button onclick="focusany.getFileIcon('folder')">getFileIcon.folder</button>
-                <button onclick="focusany.getFileIcon(pluginData.pluginRoot)">getFileIcon</button>
-                <button onclick="focusany.simulateKeyboardTap('h')">simulateKeyboardTap</button>
-                <button onclick="log('getCursorScreenPoint',focusany.getCursorScreenPoint())">getCursorScreenPoint</button>
-                <button onclick="log('getDisplayNearestPoint',focusany.getDisplayNearestPoint({x:1,y:2}))">getDisplayNearestPoint</button>
-                <button onclick="focusany.getClipboardFiles()">getClipboardFiles</button>
-                <button onclick="focusany.createBrowserWindow(pluginData.pluginRoot+'/dialog.html')">createBrowserWindow</button>
-                <button onclick="focusany.screenCapture((data)=>{ log('screenCapture',data) })">screenCapture</button>
-                <button onclick="focusany.outPlugin()">outPlugin</button>
-                <button onclick="focusany.isDarkColors()">isDarkColors</button>
-                <button onclick="focusany.redirect('截图')">redirect</button>
-                <button onclick="focusany.getActions()">getActions</button>
-                <button onclick='focusany.setAction({"name": "plugin-example-dynamic","title": "测试动态匹配","matches": [{"type": "key","key": "dynamic"}]})'>setAction</button>
-                <button onclick="focusany.removeAction('plugin-example-dynamic')">removeAction</button>
-                <button onclick="focusany.sendBackendEvent('testEvent',{a:1,b:2}).then(o=>log('result',o))">sendBackendEvent</button>
-                <button onclick="focusany.getUser()">getUser</button>
-                <button onclick="focusany.getUserAccessToken()">getUserAccessToken</button>
-                <button onclick="focusany.listGoods()">listGoods</button>
-                <button onclick="focusany.openGoodsPayment({goodsId:'1735868559365874384'})">openGoodsPayment</button>
-                <button onclick="focusany.queryGoodsOrders()">queryGoodsOrders</button>
-<!--                <button onclick="focusany.apiPost('store/member')">apiPost</button>-->
-                <button onclick="focusany.llmListModels()">llmListModels</button>
-                <button onclick="focusany.llmChat({providerId:'buildIn',modelId:'qwen-max',message:'你是什么模型'})">llmChat</button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="label">db 数据操作</div>
-            <div class="button">
-                <button onclick="demoData.dbKey=focusany.util.randomString();focusany.db.put({_id:demoData.dbKey,data:{a:1,b:2}})">db.put</button>
-                <button onclick="focusany.db.put({_id:'test',data:{a:1,b:2}})">db.put.test</button>
-                <button onclick="focusany.db.get(demoData.dbKey)">db.get</button>
-                <button onclick="focusany.db.remove(demoData.dbKey)">db.remove</button>
-                <button onclick="demoData.dbKeys=[focusany.util.randomString(),focusany.util.randomString()];focusany.db.bulkDocs([{_id:demoData.dbKeys[0],data:{a:1,b:2}},{_id:demoData.dbKeys[1],data:{a:1,b:2}}])">db.bulkDocs</button>
-                <button onclick="focusany.db.allDocs(demoData.dbKeys)">db.allDocs</button>
-                <button onclick="demoData.dbKey=focusany.util.randomString();focusany.db.postAttachment(demoData.dbKey,new Uint8Array([1,2,3]),'text/plain')">db.postAttachment</button>
-                <button onclick="focusany.db.getAttachment(demoData.dbKey)">db.getAttachment</button>
-                <button onclick="focusany.db.getAttachmentType(demoData.dbKey)">db.getAttachmentType</button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="label">dbStorage 数据操作</div>
-            <div class="button">
-                <button onclick="focusany.dbStorage.setItem('test','aaa')">dbStorage.setItem</button>
-                <button onclick="focusany.dbStorage.getItem('test')">dbStorage.getItem</button>
-                <button onclick="focusany.dbStorage.removeItem('test')">dbStorage.removeItem</button>
-            </div>
-        </div>
-        <div class="item">
-            <div class="label">util 工具类</div>
-            <div class="button">
-                <button onclick="log('util.randomString',focusany.util.randomString())">randomString</button>
-                <button onclick="log('util.bufferToBase64',focusany.util.bufferToBase64(new Uint8Array([1,2,34,5,6,7,8,9,0])))">bufferToBase64</button>
-                <button onclick="log('util.datetimeString',focusany.util.datetimeString())">datetimeString</button>
-                <button onclick="log('util.base64Encode',focusany.util.base64Encode('123'))">base64Encode</button>
-                <button onclick="log('util.base64Decode',focusany.util.base64Decode('MTIz'))">base64Decode</button>
-                <button onclick="log('util.md5',focusany.util.md5('123'))">md5</button>
-            </div>
-        </div>
-    </div>
-    <div class="log">
-        <pre id="data"></pre>
-    </div>
-</div>
-<script>
-    const pluginData = {
-        pluginRoot: null,
-        actionName: null,
-        requestId: null,
-    };
-    const demoData = {
-        dbKey: 'test',
-        dbKeys: [],
-    }
-    const $data = document.getElementById('data');
-    const log = function (label, data) {
-        const msg = [
-            `<span>${label}</span>`,
-            JSON.stringify(data),
-            '\n'
-        ].join('');
-        $data.innerHTML += msg;
-        $data.scrollTop = $data.scrollHeight;
-    };
-    focusany.onLog(function (label, data) {
-        log(label, data);
-    });
-    focusany.onPluginReady(function (data) {
-        log('onPluginReady', data);
-        pluginData.pluginRoot = focusany.getPluginRoot()
-        pluginData.actionName = data.actionName;
-        pluginData.requestId = data.requestId
-    });
-    focusany.onPluginExit(function (data) {
-        log('onPluginExit', data);
-        // alert('onPluginExit');
-    });
-</script>
+    <script>
+        const pluginData = {
+            pluginRoot: null,
+            actionName: null,
+            requestId: null,
+        };
+        const demoData = {
+            dbKey: 'test',
+            dbKeys: [],
+            llmList: [],
+        }
+        const $data = document.getElementById('data');
+        const log = function (label, data) {
+            const msgList = [];
+            msgList.push(`<span>${label}</span>`);
+            msgList.push('\n');
+            if (typeof data === 'undefined') {
+                msgList.push('void');
+            } else {
+                msgList.push(JSON.stringify(data, null, 2));
+            }
+            $data.innerHTML += msgList.join('') + '\n';
+            $data.scrollTop = $data.scrollHeight;
+        };
+        focusany.onLog(function (label, data) {
+            log(label, data);
+        });
+        focusany.onPluginReady(function (data) {
+            log('onPluginReady', data);
+            pluginData.pluginRoot = focusany.getPluginRoot()
+            pluginData.actionName = data.actionName;
+            pluginData.requestId = data.requestId
+        });
+        focusany.onPluginExit(function (data) {
+            log('onPluginExit', data);
+            // alert('onPluginExit');
+        });
+        focusany.registerCallPage('testCallPage', function (resolve, reject, data) {
+            focusany.showToast('testCallPage:' + JSON.stringify(data));
+            setTimeout(() => {
+                resolve({ code: 0, data: { a: 1, b: 2 } });
+            }, 1000);
+        });
+    </script>
 </body>
+
 </html>

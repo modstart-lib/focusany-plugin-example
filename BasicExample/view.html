@@ -62,7 +62,6 @@
                 <button onclick="focusany.getFileIcon('.txt')">getFileIcon.txt</button>
                 <button onclick="focusany.getFileIcon('folder')">getFileIcon.folder</button>
                 <button onclick="focusany.getFileIcon(pluginData.pluginRoot)">getFileIcon</button>
-                <button onclick="focusany.simulateKeyboardTap('h')">simulateKeyboardTap</button>
 <!--                <button onclick="log('getCursorScreenPoint',focusany.getCursorScreenPoint())">getCursorScreenPoint</button>-->
 <!--                <button onclick="log('getDisplayNearestPoint',focusany.getDisplayNearestPoint({x:1,y:2}))">getDisplayNearestPoint</button>-->
                 <button onclick="focusany.getClipboardFiles()">getClipboardFiles</button>
@@ -75,6 +74,16 @@
                 <button onclick='focusany.setAction({"name": "plugin-example-dynamic","title": "测试动态匹配","matches": [{"type": "key","key": "dynamic"}]})'>setAction</button>
                 <button onclick="focusany.removeAction('plugin-example-dynamic')">removeAction</button>
                 <button onclick="focusany.sendBackendEvent('testEvent',{a:1,b:2}).then(o=>log('result',o))">sendBackendEvent</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="label">simulate 模拟操作</div>
+            <div class="button">
+                <button onclick="focusany.simulate.keyboardTap('h')">keyboardTap</button>
+                <button onclick="setTimeout(()=>{ focusany.simulate.typeString('hello world'); }, 3000);">typeString</button>
+                <button onclick="focusany.simulate.mouseToggle('down','left')">mouseToggle</button>
+                <button onclick="focusany.simulate.mouseMove(100,100)">mouseMove</button>
+                <button onclick="focusany.simulate.mouseClick('left')">mouseClick</button>
             </div>
         </div>
         <div class="item">

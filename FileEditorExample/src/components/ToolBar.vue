@@ -2,6 +2,10 @@
 const props = defineProps({
     filePath: String,
     fileHistories: Array,
+    exportTypes: {
+        type: Array,
+        default: () => ['png', 'svg'],
+    },
 });
 const emit = defineEmits([
     'open',
@@ -23,7 +27,7 @@ const emit = defineEmits([
                 </template>
             </a-button>
             <template #content>
-                <div class="w-20 -m-2">
+                <div class="min-w-20 -m-2">
                     <a-button class="w-full mb-2 text-left" type="text" size="small"
                               @click="emit('open')">
                         打开
@@ -43,7 +47,7 @@ const emit = defineEmits([
                 </template>
             </a-button>
             <template #content>
-                <div class="w-20 -m-2">
+                <div class="min-w-20 -m-2">
                     <a-button class="w-full mb-2 text-left" type="text" size="small"
                               @click="emit('save')">
                         保存
@@ -62,15 +66,19 @@ const emit = defineEmits([
                 </template>
             </a-button>
             <template #content>
-                <div class="w-20 -m-2">
-                    <a-button class="w-full mb-2 text-left" type="text" size="small"
-                              @click="emit('export','png')">
-                        导出为PNG
-                    </a-button>
-                    <a-button class="w-full mb-1 text-left" type="text" size="small"
-                              @click="emit('export','svg')">
-                        导出为SVG
-                    </a-button>
+                <div class="min-w-20 -m-2">
+                    <slot name="export">
+                        <a-button class="w-full mb-2 text-left" type="text" size="small"
+                                  v-if="exportTypes.includes('png')"
+                                  @click="emit('export','png')">
+                            导出为PNG
+                        </a-button>
+                        <a-button class="w-full mb-1 text-left" type="text" size="small"
+                                  v-if="exportTypes.includes('svg')"
+                                  @click="emit('export','svg')">
+                            导出为SVG
+                        </a-button>
+                    </slot>
                 </div>
             </template>
         </a-popover>
